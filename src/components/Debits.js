@@ -20,6 +20,7 @@ class Debits extends Component {
         this.setState({isRedirect: true});
       };
     
+
       handleChange = (e) => {
         let input = e.target.name;
         let value = e.target.value;
@@ -90,6 +91,12 @@ class Debits extends Component {
             <Link to="/">Home Page</Link>
             <br></br>
             <Link to="/UserProfile">User Profile</Link>
+            <br></br>
+            <Link to="/Debits">Debit Page</Link>
+            <br></br>
+            <Link to="/Login">Login Page</Link>
+            <br></br>
+           
             {display}
           </>
         );
