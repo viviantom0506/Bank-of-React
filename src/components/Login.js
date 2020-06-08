@@ -21,7 +21,6 @@ class LogIn extends Component {
 
     this.setState({user: updatedUser})
   }
-
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.mockLogIn(this.state.user)
