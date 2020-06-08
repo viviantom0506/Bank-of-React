@@ -7,18 +7,14 @@ class Debits extends Component {
         this.state = {
           debitInfo: {
             id: "",
-            debitDescription: "",
+            description: "",
             amount: 0,
             date: "",
           },
           isRedirect: false,
         };
       }
-      handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.Debits(this.state.debitInfo)
-        this.setState({isRedirect: true});
-      };
+     
     
 
       handleChange = (e) => {
@@ -32,6 +28,11 @@ class Debits extends Component {
         this.setState({ debitInfo: newDebit });
       };
     
+      handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.Debits(this.state.debitInfo)
+        this.setState({isRedirect: true});
+      };
       render() {
         if (this.state.isRedirect) {
             return <Redirect to="/" />;
@@ -75,11 +76,8 @@ class Debits extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                {/* //button will be grayed out until everything is filled out */}
-                <button
-              
-                >
-                  Confirm
+                <button>
+                  Add debit
                 </button>
               </form>
             </div>
