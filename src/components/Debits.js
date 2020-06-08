@@ -20,7 +20,6 @@ class Debits extends Component {
         this.setState({isRedirect: true});
       };
     
-
       handleChange = (e) => {
         let input = e.target.name;
         let value = e.target.value;
