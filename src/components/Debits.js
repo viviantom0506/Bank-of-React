@@ -16,7 +16,7 @@ class Debits extends Component {
       }
       handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addDebit(this.state.debitInfo);
+        this.props.Debits(this.state.debitInfo)
         this.setState({isRedirect: true});
       };
     
@@ -28,8 +28,7 @@ class Debits extends Component {
         newDebit[input] = value;
         const date = new Date().toLocaleDateString("en-US");
         newDebit.date = date;
-        let id = Math.random();
-        newDebit.id = id;
+        const id = Math.floor(Math.random() * 9999999999) + 1;
         this.setState({ debitInfo: newDebit });
       };
     
@@ -39,20 +38,18 @@ class Debits extends Component {
           }
     
           //maps the details onto the display
-        let display = this.props.debitInfo.map((details) => {
-          return (
-            <div className="debitInfo" key={details.id}>
-              <ul>
-                <li>Description: {details.description}</li>
-                <li>Amount: {details.amount}</li>
-                <li>Date: {details.date.toString()}</li>
-                
-              </ul>
-            </div>
-            
-          );
-          
-        });
+            let display = (
+                this.props.debitInfo.map((debit) => {
+                    return (
+                        <div className="DebitHistory">
+                        
+                            <div>Description: {debit.description}</div>
+                            <div>Amount: {debit.amount}</div>
+                            <div>Date: {debit.date}</div>
+                        </div>
+                    )
+                })
+            )
     
         return (
           <>
@@ -78,11 +75,9 @@ class Debits extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
-                //button will be grayed out until everything is filled out
+                {/* //button will be grayed out until everything is filled out */}
                 <button
-                  disabled={
-                    !(this.state.debitInfo.amount && this.state.debitInfo.description)
-                  }
+              
                 >
                   Confirm
                 </button>
