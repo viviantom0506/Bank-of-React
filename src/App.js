@@ -106,7 +106,6 @@ class App extends Component {
         debitInfo={this.state.debitInfo}
       />
     );
-
     return (
       <Router>
       
