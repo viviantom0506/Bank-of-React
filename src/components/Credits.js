@@ -94,6 +94,7 @@ class Credits extends Component {
         </div>
         {display}
       </>
+      
     );
   }
 }
