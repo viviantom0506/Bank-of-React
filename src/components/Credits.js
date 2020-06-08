@@ -29,12 +29,12 @@ class Credits extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addCredit(this.state.creditInfo);
-    this.setState({ redirect: true });
+    this.props.Credits(this.state.creditInfo);
+    this.setState({ isRedirect: true });
   };
 
   render() {
-    if (this.state.redirect) {
+    if (this.state.isRedirect) {
       return <Redirect to="/" />;
     }
 
@@ -88,13 +88,12 @@ class Credits extends Component {
             <br></br>
             <Link to="UserProfile">User Profile</Link>
             <br></br>
-            <Link to="AccountBalance">Accound Balance</Link>
+            
             </div>
           </form>
         </div>
         {display}
       </>
-      
     );
   }
 }
